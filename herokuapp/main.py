@@ -2,9 +2,7 @@
 
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-from sklearn.neighbors import KernelDensity
+
 
 #Imports for Bokeh
 from bokeh.io import curdoc,show, output_file
