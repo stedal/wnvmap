@@ -18,7 +18,7 @@ from bokeh.palettes import Spectral6
 
 #output_file("gmap1.html")
 
-map_options = GMapOptions(lat=30.2861, lng=-97.7394, map_type="roadmap", zoom=11)
+map_options = GMapOptions(lat=41.8876, lng=-87.61979, map_type="roadmap", zoom=11)
 
 # For GMaps to function, Google requires you obtain and enable an API key:
 #
