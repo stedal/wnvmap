@@ -31,7 +31,7 @@ group.drop_duplicates(inplace = True)
 source = ColumnDataSource(group)
 source2 = ColumnDataSource(spray)
 
-TOOLS = 'pan, wheel_zoom, box_zoom, reset, save'
+TOOLS = 'pan, wheel_zoom, reset, save'
 
 p1 = gmap("AIzaSyCgCcWOfx8aDHE6zyK903AqW5KcohPnyl8", map_options,
           title="Mosquito Trap and Pesticide Spray locations",
@@ -43,7 +43,10 @@ p1.x(x="Longitude", y="Latitude", size=12, fill_color="blue", fill_alpha=1, sour
 p1.circle(x="Longitude", y="Latitude", size=7, fill_color="green", fill_alpha=0.3, line_alpha = .1,
           line_color = 'yellow', source=source2, legend="Pesticide Spray Locations")
 
-
+p1.xaxis.axis_label = "Longitude"
+p1.xaxis.axis_label_text_font_size = '12pt'
+p1.yaxis.axis_label = "Latitude"
+p1.yaxis.axis_label_text_font_size = '12pt'
 p1.title.align = 'center'
 p1.title.text_font_size = '16pt'
 p1.legend.location = 'top_right'
