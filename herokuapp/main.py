@@ -18,9 +18,9 @@ from bokeh.palettes import Spectral6
 from bokeh.models.markers import X
 
 # Load data
-train = pd.read_csv('data/combined_train.csv')
-test = pd.read_csv('data/combined_test.csv')
-spray = pd.read_csv('data/spray.csv')
+train = pd.read_csv('herokuapp/data/combined_train.csv')
+test = pd.read_csv('herokuapp/data/combined_test.csv')
+spray = pd.read_csv('heroluapp/data/spray.csv')
 
 #output_file("gmap1.html")
 
