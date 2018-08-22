@@ -19,9 +19,9 @@ from bokeh.models.markers import X
 
 #output_file("gmap1.html")
 
-train = pd.read_csv('data/combined_train.csv')
-test = pd.read_csv('data/combined_test.csv')
-spray = pd.read_csv('data/spray.csv')
+train = pd.read_csv('herokuapp/data/combined_train.csv')
+test = pd.read_csv('herokuapp/data/combined_test.csv')
+spray = pd.read_csv('herokuapp/data/spray.csv')
 
 group = test[['Longitude', 'Latitude']]
 group.drop_duplicates(inplace = True)
