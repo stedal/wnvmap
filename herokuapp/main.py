@@ -17,14 +17,12 @@ from bokeh.resources import CDN
 from bokeh.palettes import Spectral6
 from bokeh.models.markers import X
 
+# Load data
+train = pd.read_csv('data/combined_train.csv')
+test = pd.read_csv('data/combined_test.csv')
+spray = pd.read_csv('data/spray.csv')
+
 #output_file("gmap1.html")
-
-train = pd.read_csv('herokuapp/data/combined_train.csv')
-test = pd.read_csv('herokuapp/data/combined_test.csv')
-spray = pd.read_csv('herokuapp/data/spray.csv')
-
-group = test[['Longitude', 'Latitude']]
-group.drop_duplicates(inplace = True)
 
 map_options = GMapOptions(lat=41.8876, lng=-87.61979, map_type="roadmap", zoom=10)
 
@@ -33,8 +31,13 @@ map_options = GMapOptions(lat=41.8876, lng=-87.61979, map_type="roadmap", zoom=1
 #     https://developers.google.com/maps/documentation/javascript/get-api-key
 #
 # Replace the value below with your personal API key:
-source = ColumnDataSource(group)
 
+
+group = test[['Longitude', 'Latitude']]
+group.drop_duplicates(inplace = True)
+
+source = ColumnDataSource(group)
+source2 = ColumnDataSource(spray)
 # source = ColumnDataSource(
 #     data=dict(lat=[ 30.29,  30.20,  30.29],
 #               lon=[-97.70, -97.74, -97.78])
