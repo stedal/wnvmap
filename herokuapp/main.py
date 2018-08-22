@@ -22,15 +22,7 @@ train = pd.read_csv('herokuapp/data/combined_train.csv')
 test = pd.read_csv('herokuapp/data/combined_test.csv')
 spray = pd.read_csv('herokuapp/data/spray.csv')
 
-#output_file("gmap1.html")
-
 map_options = GMapOptions(lat=41.8876, lng=-87.61979, map_type="roadmap", zoom=10)
-
-# For GMaps to function, Google requires you obtain and enable an API key:
-#
-#     https://developers.google.com/maps/documentation/javascript/get-api-key
-#
-# Replace the value below with your personal API key:
 
 
 group = test[['Longitude', 'Latitude']]
@@ -38,23 +30,24 @@ group.drop_duplicates(inplace = True)
 
 source = ColumnDataSource(group)
 source2 = ColumnDataSource(spray)
-# source = ColumnDataSource(
-#     data=dict(lat=[ 30.29,  30.20,  30.29],
-#               lon=[-97.70, -97.74, -97.78])
-# )
+
+TOOLS = 'pan, wheel_zoom, box_zoom, reset, save'
+
 p1 = gmap("AIzaSyCgCcWOfx8aDHE6zyK903AqW5KcohPnyl8", map_options,
           title="Mosquito Trap and Pesticide Spray locations",
-         plot_height = 800, plot_width = 800)
+         plot_height = 800, plot_width = 800,
+         tools = TOOLS)
 
 p1.x(x="Longitude", y="Latitude", size=12, fill_color="blue", fill_alpha=1, source=source,
     legend="Mosquito Trap Locations")
-p1.circle(x="Longitude", y="Latitude", size=7, fill_color="yellow", fill_alpha=0.1, line_alpha = .1,
+p1.circle(x="Longitude", y="Latitude", size=7, fill_color="green", fill_alpha=0.3, line_alpha = .1,
           line_color = 'yellow', source=source2, legend="Pesticide Spray Locations")
-#glyph = X(x="Longitude", y="Latitude", size=7, fill_color="blue", fill_alpha=0.8, source=source)
-#p1.add_glyph(source, glyph)
+
+
 p1.title.align = 'center'
 p1.title.text_font_size = '16pt'
 p1.legend.location = 'top_right'
-
-#show(p1)
+p1.legend.background_fill_color = "white"
+p1.legend.border_line_color = 'black'
+p1.legend.click_policy = 'hide'
 curdoc().add_root(p1)
