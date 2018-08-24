@@ -35,7 +35,7 @@ TOOLS = 'pan, wheel_zoom, reset, save'
 
 p1 = gmap("AIzaSyCgCcWOfx8aDHE6zyK903AqW5KcohPnyl8", map_options,
           title="Mosquito Trap and Pesticide Spray locations",
-         plot_height = 400, plot_width = 800,
+         plot_height = 800, plot_width = 800,
          tools = TOOLS)
 
 p1.x(x="Longitude", y="Latitude", size=12, fill_color="blue", fill_alpha=1, source=source,
